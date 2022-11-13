@@ -46,12 +46,21 @@
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
           <li><a class="nav-link" href="#services">Projects</a></li>
-          <li onclick="play()"> <a class="nav-link" style="color: #18d26e;">Click me to start the party</a> </li>
-          <audio id="audio" src="assets/music/Anderson_Paak_Make_It_Better_Ft_Smokey_Robinson.mp3"></audio>
+          <li onclick="play()"> <a id="turn_off" class="nav-link" style="color: #18d26e;">Turn the party off</a> </li>
+          <audio id="audio" autoplay>
+            <source src="assets/music/Anderson_Paak_Make_It_Better_Ft_Smokey_Robinson.mp3">
+          </audio>
           <script>
             function play() {
               var audio = document.getElementById("audio");
-              audio.play();
+              var turnoff = document.getElementById("turn_off");
+              if (audio.muted) {
+                audio.muted = false;
+                turnoff.innerHTML= 'Turn the party off'
+              } else {
+                audio.muted = true
+                turnoff.innerHTML= 'Turn the party back on'
+              }
             }
           </script>
           <!-- <li><a class="nav-link" href="#contact">Contact</a></li> -->
@@ -108,7 +117,7 @@
           </p>
             <p>
             But what sets me apart is that I <i style="color: #e80368;">believe</i> that life should have flavour. On top of changing the world one project at a time, I strive to make a difference even through the journey.
-            <i style="color: #e80368;">I dive deep but never lose site of the big picture.</i>
+            <i style="color: #e80368;">I dive deep but never lose sight of the big picture.</i>
             </p>
           <p>
             That is my vision and possibly even a takeaway. Amidst the journey of pursuing a goal, <i style="color: #e80368;"> never lose site of who you can impact.</i>
@@ -150,8 +159,8 @@
         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
           <div class="count-box">
             <i class="bi bi-award"></i>
-            <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
-            <p>How many lives</p>
+            <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Years in tech</p>
           </div>
         </div>
 
