@@ -46,19 +46,22 @@
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
           <li><a class="nav-link" href="#services">Projects</a></li>
-          <li onclick="mute()"> <a id="turn_off" class="nav-link" style="color: #18d26e;">Turn the party off</a> </li>
-          <audio id="audio" autoplay>
+          <li onclick="change_audio_state()"> <a id="turn_off" class="nav-link" style="color: #18d26e;"> Click me to start the party </a> </li>
+          <audio id="audio">
             <source src="assets/music/water_flow.mp3">
+            Your browser does not support the audio element
           </audio>
           <script>
-            function mute() {
+            function change_audio_state() {
               var audio = document.getElementById("audio");
               var turnoff = document.getElementById("turn_off");
-              if (audio.muted) {
+              if (audio.paused) {
                 audio.muted = false;
+                audio.play()
                 turnoff.innerHTML= 'Turn the party off'
               } else {
                 audio.muted = true
+                audio.pause()
                 turnoff.innerHTML= 'Turn the party back on'
               }
             }
